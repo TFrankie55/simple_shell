@@ -2,40 +2,40 @@
 
 /**
  * get_len - Get the lenght of a number.
- * @n: type int number.
+ * @num: type int number.
  * Return: Lenght of a number.
  */
-int get_len(int n)
+int get_len(int num)
 {
-	unsigned int n1;
+	unsigned int num1;
 	int lenght = 1;
 
-	if (n < 0)
+	if (num < 0)
 	{
 		lenght++;
-		n1 = n * -1;
+		num1 = num * -1;
 	}
 	else
 	{
-		n1 = n;
+		num1 = num;
 	}
-	while (n1 > 9)
+	while (num1 > 9)
 	{
 		lenght++;
-		n1 = n1 / 10;
+		num1 = num1 / 10;
 	}
 
 	return (lenght);
 }
 /**
  * aux_itoa - function converts int to string.
- * @n: type int number
+ * @num: type int number
  * Return: String.
  */
-char *aux_itoa(int n)
+char *aux_itoa(int num)
 {
-	unsigned int n1;
-	int lenght = get_len(n);
+	unsigned int num1;
+	int lenght = get_len(num);
 	char *buffer;
 
 	buffer = malloc(sizeof(char) * (lenght + 1));
@@ -44,45 +44,45 @@ char *aux_itoa(int n)
 
 	*(buffer + lenght) = '\0';
 
-	if (n < 0)
+	if (num < 0)
 	{
-		n1 = n * -1;
+		num1 = num * -1;
 		buffer[0] = '-';
 	}
 	else
 	{
-		n1 = n;
+		num1 = num;
 	}
 
 	lenght--;
 	do {
-		*(buffer + lenght) = (n1 % 10) + '0';
-		n1 = n1 / 10;
+		*(buffer + lenght) = (num1 % 10) + '0';
+		num1 = num1 / 10;
 		lenght--;
 	}
-	while (n1 > 0)
+	while (num1 > 0)
 		;
 	return (buffer);
 }
 
 /**
  * _atoi - converts a string to an integer.
- * @s: input string.
+ * @str: input string.
  * Return: integer.
  */
-int _atoi(char *s)
+int _atoi(char *str)
 {
 	unsigned int count = 0, size = 0, oi = 0, pn = 1, m = 1, i;
 
-	while (*(s + count) != '\0')
+	while (*(str + count) != '\0')
 	{
-		if (size > 0 && (*(s + count) < '0' || *(s + count) > '9'))
+		if (size > 0 && (*(str + count) < '0' || *(str + count) > '9'))
 			break;
 
-		if (*(s + count) == '-')
+		if (*(str + count) == '-')
 			pn *= -1;
 
-		if ((*(s + count) >= '0') && (*(s + count) <= '9'))
+		if ((*(str + count) >= '0') && (*(str + count) <= '9'))
 		{
 			if (size > 0)
 				m *= 10;
@@ -93,7 +93,7 @@ int _atoi(char *s)
 
 	for (i = count - size; i < count; i++)
 	{
-		oi = oi + ((*(s + i) - 48) * m);
+		oi = oi + ((*(str + i) - 48) * m);
 		m /= 10;
 	}
 	return (oi * pn);
