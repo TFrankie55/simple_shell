@@ -123,7 +123,7 @@ void print_syntax_error(data_shell *datash, char *input, int ind, int bool)
 	msg2 = ": Syntax error: \"";
 	msg3 = "\" unexpected\n";
 	counter = aux_itoa(datash->counter);
-	length = _strlen(datash->av[0]) + _strlen(counter);
+	length = _strlen(datash->argv[0]) + _strlen(counter);
 	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
 
 	error = malloc(sizeof(char) * (length + 1));
@@ -132,7 +132,7 @@ void print_syntax_error(data_shell *datash, char *input, int ind, int bool)
 		free(counter);
 		return;
 	}
-	_strcpy(error, datash->av[0]);
+	_strcpy(error, datash->argv[0]);
 	_strcat(error, ": ");
 	_strcat(error, counter);
 	_strcat(error, msg2);

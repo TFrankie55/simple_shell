@@ -14,7 +14,7 @@ char *copy_info(char *name, char *val)
 	int len_name, len_value, len;
 
 	len_name = _strlen(name);
-	len_val = _strlen(val);
+	len_value = _strlen(val);
 	len = len_name + len_value + 2;
 	new = malloc(sizeof(char) * (len));
 	_strcpy(new, name);
@@ -29,11 +29,11 @@ char *copy_info(char *name, char *val)
  * set_env - sets an environment variable
  *
  * @name: name of the environment variable
- * @value: value of the environment variable
+ * @val: value of the environment variable
  * @datash: data structure (environ)
  * Return: no return
  */
-void set_env(char *name, char *value, data_shell *datash)
+void set_env(char *name, char *val, data_shell *datash)
 {
 	int i;
 	char *var_env, *name_env;

@@ -8,7 +8,7 @@
  * @data: data structure
  * Return: no return
  */
-void check_env(r_var **h, char *in, data_shell *data)
+void check_env(R_var **h, char *in, data_shell *data)
 {
 	int row, chr, j, lval;
 	char **_envr;
@@ -50,7 +50,7 @@ void check_env(r_var **h, char *in, data_shell *data)
  * @data: data structure
  * Return: no return
  */
-int check_vars(r_var **h, char *in, char *st, data_shell *data)
+int check_vars(R_var **h, char *in, char *st, data_shell *data)
 {
 	int i, lst, lpd;
 
@@ -92,9 +92,9 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data)
  * @nlen: new length
  * Return: replaced string
  */
-char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
+char *replaced_input(R_var **head, char *input, char *new_input, int nlen)
 {
-	r_var *indx;
+	R_var *indx;
 	int i, j, k;
 
 	indx = *head;
@@ -144,7 +144,7 @@ char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
  */
 char *rep_var(char *input, data_shell *datash)
 {
-	r_var *head, *indx;
+	R_var *head, *indx;
 	char *status, *new_input;
 	int olen, nlen;
 

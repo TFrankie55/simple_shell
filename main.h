@@ -169,11 +169,14 @@ int cmd_exec(data_shell *datash);
 char *_getenv(const char *name, char **_environ);
 int _env(data_shell *datash);
 
+/*get_error.c*/
+int get_error(data_shell *datash, int eval);
+
 /* env2.c */
 char *copy_info(char *name, char *val);
 void set_env(char *name, char *value, data_shell *datash);
-int _setenvt_error.c
-int get_error(data_shell *datash, int eval);
+int _setenv(data_shell *datash);
+int _unsetenv(data_shell *datash);
 
 /* get_sigint.c */
 void get_sigint(int signal);
@@ -192,8 +195,6 @@ void aux_help_cd(void);
 
 /* get_help.c */
 int get_help(data_shell *datash);
-
-(data_shell *datash);
 int _unsetenv(data_shell *datash);
 
 /* cd.c */

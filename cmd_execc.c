@@ -190,7 +190,7 @@ int cmd_exec(data_shell *datash)
 	}
 	else if (pd < 0)
 	{
-		perror(datash->av[0]);
+		perror(datash->argv[0]);
 		return (1);
 	}
 	else
