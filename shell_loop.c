@@ -3,36 +3,36 @@
 /**
  * without_comment - deletes comments from the input
  *
- * @in: input string
+ * @input: input string
  * Return: input without comments
  */
-char *without_comment(char *in)
+char *without_comment(char *input)
 {
-	int i, up_to;
+	int index, up_to;
 
 	up_to = 0;
-	for (i = 0; in[i]; i++)
+	for (index = 0; input[index]; index++)
 	{
-		if (in[i] == '#')
+		if (input[index] == '#')
 		{
-			if (i == 0)
+			if (index == 0)
 			{
-				free(in);
+				free(input);
 				return (NULL);
 			}
 
-			if (in[i - 1] == ' ' || in[i - 1] == '\t' || in[i - 1] == ';')
-				up_to = i;
+			if (input[index - 1] == ' ' || input[index - 1] == '\t' || input[index - 1] == ';')
+				up_to = index;
 		}
 	}
 
 	if (up_to != 0)
 	{
-		in = _realloc(in, i, up_to + 1);
-		in[up_to] = '\0';
+		input = _realloc(input, index, up_to + 1);
+		input[up_to] = '\0';
 	}
 
-	return (in);
+	return (input);
 }
 
 /**
