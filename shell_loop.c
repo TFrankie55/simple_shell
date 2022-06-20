@@ -8,27 +8,27 @@
  */
 char *without_comment(char *input)
 {
-	int index, up_to;
+	int in, up_to;
 
 	up_to = 0;
-	for (index = 0; input[index]; index++)
+	for (in = 0; input[in]; in++)
 	{
-		if (input[index] == '#')
+		if (input[in] == '#')
 		{
-			if (index == 0)
+			if (in == 0)
 			{
 				free(input);
 				return (NULL);
 			}
 
-			if (input[index - 1] == ' ' || input[index - 1] == '\t' || input[index - 1] == ';')
-				up_to = index;
+			if (input[in - 1] == ' ' || input[in - 1] == '\t' || input[in - 1] == ';')
+				up_to = in;
 		}
 	}
 
 	if (up_to != 0)
 	{
-		input = _realloc(input, index, up_to + 1);
+		input = _realloc(input, in, up_to + 1);
 		input[up_to] = '\0';
 	}
 
